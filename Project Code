@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CountVowelsModularized
+{
+    public partial class Form1 : Form
+    {
+        string strings;
+        int counts;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void txtinput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btncount_Click(object sender, EventArgs e)
+        {
+            counts = 0;
+            strings = txtinput.Text;
+            vowelcount(strings, 'a');
+            vowelcount(strings, 'e');
+            vowelcount(strings, 'i');
+            vowelcount(strings, 'o');
+            vowelcount(strings, 'u');
+            vowelcount(strings, 'A');
+            vowelcount(strings, 'E');
+            vowelcount(strings, 'I');
+            vowelcount(strings, 'O');
+            vowelcount(strings, 'U');
+            MessageBox.Show("The Number of Vowels in Your Word is " + counts, "Count");
+
+        }
+        private int vowelcount(string strings, char vowel)
+        {
+            char[] strings2 = strings.ToCharArray();
+
+            for(int x=0; x < strings.Length; x++)
+            {
+                if (strings2[x] == vowel )
+                {
+                    counts++;
+                }
+            }
+            return counts;
+        }
+    }
+}
